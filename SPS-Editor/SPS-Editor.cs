@@ -32,27 +32,17 @@ namespace SPS_Editor
 
         }
 
-        private void boldButtonClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void underlineButtonClick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void italicsButtonClick(object sender, EventArgs e)
-        {
-
-        }
-
         private void exitItemClick(object sender, EventArgs e)
         {
 
         }
 
         private void LoadFormContent(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pageTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
