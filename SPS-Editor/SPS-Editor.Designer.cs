@@ -32,9 +32,9 @@
             this.menubar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageTextBox = new System.Windows.Forms.RichTextBox();
             this.contentGroupBox = new System.Windows.Forms.GroupBox();
+            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menubar.SuspendLayout();
             this.contentGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -61,15 +61,15 @@
             this.fileToolStripMenuItem});
             this.menubar.Location = new System.Drawing.Point(0, 0);
             this.menubar.Name = "menubar";
-            this.menubar.Size = new System.Drawing.Size(529, 24);
+            this.menubar.Size = new System.Drawing.Size(628, 24);
             this.menubar.TabIndex = 2;
             this.menubar.Text = "menubar";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveMenuItem,
-            this.exitMenuItem});
+            this.openMenuItem,
+            this.saveMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -83,14 +83,6 @@
             this.saveMenuItem.ToolTipText = "Save all modified data.";
             this.saveMenuItem.Click += new System.EventHandler(this.saveMenuClick);
             // 
-            // exitMenuItem
-            // 
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.exitMenuItem.Text = "Exit";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitItemClick);
-            // 
             // pageTextBox
             // 
             this.pageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -99,7 +91,7 @@
             this.pageTextBox.Location = new System.Drawing.Point(157, 27);
             this.pageTextBox.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.pageTextBox.Name = "pageTextBox";
-            this.pageTextBox.Size = new System.Drawing.Size(330, 308);
+            this.pageTextBox.Size = new System.Drawing.Size(430, 308);
             this.pageTextBox.TabIndex = 4;
             this.pageTextBox.Text = "";
             this.pageTextBox.TextChanged += new System.EventHandler(this.pageTextBox_TextChanged);
@@ -111,22 +103,31 @@
             this.contentGroupBox.Controls.Add(this.pageTextBox);
             this.contentGroupBox.Location = new System.Drawing.Point(12, 27);
             this.contentGroupBox.Name = "contentGroupBox";
-            this.contentGroupBox.Size = new System.Drawing.Size(501, 353);
+            this.contentGroupBox.Size = new System.Drawing.Size(604, 353);
             this.contentGroupBox.TabIndex = 6;
             this.contentGroupBox.TabStop = false;
             this.contentGroupBox.Text = "Content: ";
+            // 
+            // openMenuItem
+            // 
+            this.openMenuItem.Name = "openMenuItem";
+            this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openMenuItem.Text = "Open";
+            this.openMenuItem.Click += new System.EventHandler(this.openMenuItemClick);
             // 
             // SPSEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 391);
+            this.ClientSize = new System.Drawing.Size(628, 391);
             this.Controls.Add(this.contentGroupBox);
             this.Controls.Add(this.menubar);
             this.MainMenuStrip = this.menubar;
             this.MaximizeBox = false;
             this.Name = "SPSEditor";
             this.Text = "SPS-Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloseProgram);
             this.Load += new System.EventHandler(this.LoadFormContent);
             this.menubar.ResumeLayout(false);
             this.menubar.PerformLayout();
@@ -143,7 +144,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
         private System.Windows.Forms.RichTextBox pageTextBox;
         private System.Windows.Forms.GroupBox contentGroupBox;
-        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openMenuItem;
     }
 }
 

@@ -10,8 +10,17 @@ using System.Windows.Forms;
 
 namespace SPS_Editor
 {
+
     public partial class SPSEditor : Form
     {
+        public string inputFile = null;
+        public string outputFile = null;
+        public JData jdata = null;
+        public JData temp = null;
+        public bool validFile = false;
+        public bool fileLoaded = false;
+        public bool validObject = false;
+
         public SPSEditor()
         {
             InitializeComponent();
@@ -19,22 +28,62 @@ namespace SPS_Editor
 
         private void saveMenuClick(object sender, EventArgs e)
         {
-
+            if (validFile && fileLoaded && validObject)
+            {
+                JSONHelper.WriteData(inputFile, jdata);
+                Console.WriteLine("Questions: ");
+                foreach(string s in jdata.Questions)
+                {
+                    Console.WriteLine(s);
+                }
+            }
         }
 
         private void pageSelectionChanged(object sender, EventArgs e)
         {
-
+            if (inputFile != null)
+            {
+                if (jdata.Questions != null && jdata.Responses != null && jdata.Contacts != null)
+                {
+                    if (pagesListBox.SelectedItem.ToString() == "Questions")
+                    {
+                        pageTextBox.Text = "";
+                        jdata = JSONHelper.ReadData(inputFile);
+                        foreach (string quest in jdata.Questions)
+                        {
+                            pageTextBox.AppendText(quest + "\n");
+                        }
+                        
+                    }
+                    else if (pagesListBox.SelectedItem.ToString() == "Responses")
+                    {
+                        pageTextBox.Text = "";
+                        jdata = JSONHelper.ReadData(inputFile);
+                        foreach (string resp in jdata.Responses)
+                        {
+                            pageTextBox.AppendText(resp + "\n");
+                        }
+                    }
+                    else if (pagesListBox.SelectedItem.ToString() == "Contacts")
+                    {
+                        pageTextBox.Text = "";
+                        jdata = JSONHelper.ReadData(inputFile);
+                        foreach (string con in jdata.Contacts)
+                        {
+                            pageTextBox.AppendText(con + "\n");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a file to open first.");
+            }
         }
 
         private void pageTextBoxEnter(object sender, EventArgs e)
         {
-
-        }
-
-        private void exitItemClick(object sender, EventArgs e)
-        {
-
+  
         }
 
         private void LoadFormContent(object sender, EventArgs e)
@@ -44,7 +93,97 @@ namespace SPS_Editor
 
         private void pageTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (fileLoaded && validFile && validObject)
+            {
+                if(pagesListBox.SelectedItem.ToString() == "Questions")
+                {
+                    if (pageTextBox.Text != "")
+                    {
+                        jdata.Questions = pageTextBox.Text.Split('\n');
+                        JSONHelper.WriteData(inputFile, jdata);
+                    }
+                }
+                else if (pagesListBox.SelectedItem.ToString() == "Responses")
+                {
+                    if (pageTextBox.Text != "")
+                    {
+                        jdata.Responses = pageTextBox.Text.Split('\n');
+                        JSONHelper.WriteData(inputFile, jdata);
+                    }
+                }
+                else if (pagesListBox.SelectedItem.ToString() == "Contacts")
+                {
+                    if (pageTextBox.Text != "")
+                    {
+                        jdata.Contacts = pageTextBox.Text.Split('\n');
+                        JSONHelper.WriteData(inputFile, jdata);
+                    }
+                }
+            }
+        }
 
+        private void openMenuItemClick(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.InitialDirectory = "C:\\";
+            ofd.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+            ofd.FilterIndex = 0;
+            ofd.RestoreDirectory = true;
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                inputFile = ofd.FileName;
+                fileLoaded = true;
+            }
+            Console.Error.WriteLine("Opened file: {0}", inputFile);
+
+            if (inputFile != null)
+            {
+                fileLoaded = true;
+                jdata = JSONHelper.ReadData(inputFile);
+
+                if (jdata.Questions != null && jdata.Responses != null && 
+                    jdata.Error != null && jdata.Contacts != null)
+                {
+                    validFile = true;
+                    validObject = true;
+
+                    temp = jdata;
+
+                    pagesListBox.SelectedItem = "Questions";
+                }
+                else
+                {
+                    MessageBox.Show("The selected file is empty or\n not formatted correctly.");
+                    inputFile = null;
+                    jdata = null;
+
+                    validFile = false;
+                    validObject = false;
+                }
+            }
+        }
+
+        private void CloseProgram(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Do you want to save changes to the text?", "Save changes",
+            MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
+            {
+              
+                if (fileLoaded && validFile && validObject)
+                {
+                    JSONHelper.WriteData(inputFile, jdata);
+                }
+            }
+            else if (dr == DialogResult.No)
+            {
+                if (fileLoaded && validFile && validObject)
+                {
+                    JSONHelper.WriteData(inputFile, temp);
+                }
+            }
         }
     }
 }
