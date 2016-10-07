@@ -31,10 +31,10 @@
             this.pagesListBox = new System.Windows.Forms.ListBox();
             this.menubar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageTextBox = new System.Windows.Forms.RichTextBox();
             this.contentGroupBox = new System.Windows.Forms.GroupBox();
-            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menubar.SuspendLayout();
             this.contentGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -74,12 +74,20 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // openMenuItem
+            // 
+            this.openMenuItem.Name = "openMenuItem";
+            this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openMenuItem.Text = "Open";
+            this.openMenuItem.Click += new System.EventHandler(this.openMenuItemClick);
+            // 
             // saveMenuItem
             // 
             this.saveMenuItem.Name = "saveMenuItem";
             this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.saveMenuItem.Text = "Save All";
+            this.saveMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveMenuItem.Text = "Save";
             this.saveMenuItem.ToolTipText = "Save all modified data.";
             this.saveMenuItem.Click += new System.EventHandler(this.saveMenuClick);
             // 
@@ -107,14 +115,6 @@
             this.contentGroupBox.TabIndex = 6;
             this.contentGroupBox.TabStop = false;
             this.contentGroupBox.Text = "Content: ";
-            // 
-            // openMenuItem
-            // 
-            this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.openMenuItem.Text = "Open";
-            this.openMenuItem.Click += new System.EventHandler(this.openMenuItemClick);
             // 
             // SPSEditor
             // 
