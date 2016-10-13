@@ -26,19 +26,6 @@ namespace SPS_Editor
             InitializeComponent();
         }
 
-        private void saveMenuClick(object sender, EventArgs e)
-        {
-            if (validFile && fileLoaded && validObject)
-            {
-                JSONHelper.WriteData(inputFile, jdata);
-                Console.WriteLine("Questions: ");
-                foreach(string s in jdata.Questions)
-                {
-                    Console.WriteLine(s);
-                }
-            }
-        }
-
         private void pageSelectionChanged(object sender, EventArgs e)
         {
             if (inputFile != null)
@@ -79,16 +66,6 @@ namespace SPS_Editor
             {
                 MessageBox.Show("Please select a file to open first.");
             }
-        }
-
-        private void pageTextBoxEnter(object sender, EventArgs e)
-        {
-  
-        }
-
-        private void LoadFormContent(object sender, EventArgs e)
-        {
-
         }
 
         private void pageTextBox_TextChanged(object sender, EventArgs e)
@@ -168,7 +145,7 @@ namespace SPS_Editor
         private void CloseProgram(object sender, FormClosingEventArgs e)
         {
             DialogResult dr = MessageBox.Show("Do you want to save changes to the text?", "Save changes",
-            MessageBoxButtons.YesNo);
+            MessageBoxButtons.YesNoCancel);
             if (dr == DialogResult.Yes)
             {
               
@@ -184,6 +161,26 @@ namespace SPS_Editor
                     JSONHelper.WriteData(inputFile, temp);
                 }
             }
+            else if (dr == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void aboutMenuItemClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Authors: SPS - 2016.", "About");
+        }
+
+        private void infoMenuClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click the categories you wish to modify.\nWhen you are finished, just close the program.",
+                "Help");
+        }
+
+        private void undoClick(object sender, EventArgs e)
+        {
+            pageTextBox.Undo();
         }
     }
 }

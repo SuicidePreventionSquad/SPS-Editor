@@ -32,9 +32,13 @@
             this.menubar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pageTextBox = new System.Windows.Forms.RichTextBox();
             this.contentGroupBox = new System.Windows.Forms.GroupBox();
+            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menubar.SuspendLayout();
             this.contentGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +62,9 @@
             // 
             this.menubar.BackColor = System.Drawing.SystemColors.MenuBar;
             this.menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.helpMenuItem});
             this.menubar.Location = new System.Drawing.Point(0, 0);
             this.menubar.Name = "menubar";
             this.menubar.Size = new System.Drawing.Size(628, 24);
@@ -68,8 +74,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openMenuItem,
-            this.saveMenuItem});
+            this.openMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -78,18 +83,9 @@
             // 
             this.openMenuItem.Name = "openMenuItem";
             this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(146, 22);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItemClick);
-            // 
-            // saveMenuItem
-            // 
-            this.saveMenuItem.Name = "saveMenuItem";
-            this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveMenuItem.Text = "Save";
-            this.saveMenuItem.ToolTipText = "Save all modified data.";
-            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuClick);
             // 
             // pageTextBox
             // 
@@ -103,7 +99,6 @@
             this.pageTextBox.TabIndex = 4;
             this.pageTextBox.Text = "";
             this.pageTextBox.TextChanged += new System.EventHandler(this.pageTextBox_TextChanged);
-            this.pageTextBox.Enter += new System.EventHandler(this.pageTextBoxEnter);
             // 
             // contentGroupBox
             // 
@@ -115,6 +110,45 @@
             this.contentGroupBox.TabIndex = 6;
             this.contentGroupBox.TabStop = false;
             this.contentGroupBox.Text = "Content: ";
+            // 
+            // helpMenuItem
+            // 
+            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoMenuItem,
+            this.aboutMenuItem});
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpMenuItem.Text = "Help";
+            // 
+            // infoMenuItem
+            // 
+            this.infoMenuItem.Name = "infoMenuItem";
+            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.infoMenuItem.Text = "Info";
+            this.infoMenuItem.Click += new System.EventHandler(this.infoMenuClick);
+            // 
+            // aboutMenuItem
+            // 
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutMenuItem.Text = "About";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItemClick);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // undoMenuItem
+            // 
+            this.undoMenuItem.Name = "undoMenuItem";
+            this.undoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.undoMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.undoMenuItem.Text = "Undo";
+            this.undoMenuItem.Click += new System.EventHandler(this.undoClick);
             // 
             // SPSEditor
             // 
@@ -128,7 +162,6 @@
             this.Name = "SPSEditor";
             this.Text = "SPS-Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CloseProgram);
-            this.Load += new System.EventHandler(this.LoadFormContent);
             this.menubar.ResumeLayout(false);
             this.menubar.PerformLayout();
             this.contentGroupBox.ResumeLayout(false);
@@ -141,10 +174,14 @@
         private System.Windows.Forms.ListBox pagesListBox;
         private System.Windows.Forms.MenuStrip menubar;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
         private System.Windows.Forms.RichTextBox pageTextBox;
         private System.Windows.Forms.GroupBox contentGroupBox;
         private System.Windows.Forms.ToolStripMenuItem openMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem undoMenuItem;
     }
 }
 
