@@ -32,13 +32,13 @@
             this.menubar = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pageTextBox = new System.Windows.Forms.RichTextBox();
-            this.contentGroupBox = new System.Windows.Forms.GroupBox();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pageTextBox = new System.Windows.Forms.RichTextBox();
+            this.contentGroupBox = new System.Windows.Forms.GroupBox();
             this.menubar.SuspendLayout();
             this.contentGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,45 @@
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.openMenuItemClick);
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // undoMenuItem
+            // 
+            this.undoMenuItem.Name = "undoMenuItem";
+            this.undoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.undoMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.undoMenuItem.Text = "Undo";
+            this.undoMenuItem.Click += new System.EventHandler(this.undoClick);
+            // 
+            // helpMenuItem
+            // 
+            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoMenuItem,
+            this.aboutMenuItem});
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpMenuItem.Text = "Help";
+            // 
+            // infoMenuItem
+            // 
+            this.infoMenuItem.Name = "infoMenuItem";
+            this.infoMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.infoMenuItem.Text = "Info";
+            this.infoMenuItem.Click += new System.EventHandler(this.infoMenuClick);
+            // 
+            // aboutMenuItem
+            // 
+            this.aboutMenuItem.Name = "aboutMenuItem";
+            this.aboutMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutMenuItem.Text = "About";
+            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItemClick);
+            // 
             // pageTextBox
             // 
             this.pageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -110,45 +149,6 @@
             this.contentGroupBox.TabIndex = 6;
             this.contentGroupBox.TabStop = false;
             this.contentGroupBox.Text = "Content: ";
-            // 
-            // helpMenuItem
-            // 
-            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.infoMenuItem,
-            this.aboutMenuItem});
-            this.helpMenuItem.Name = "helpMenuItem";
-            this.helpMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpMenuItem.Text = "Help";
-            // 
-            // infoMenuItem
-            // 
-            this.infoMenuItem.Name = "infoMenuItem";
-            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.infoMenuItem.Text = "Info";
-            this.infoMenuItem.Click += new System.EventHandler(this.infoMenuClick);
-            // 
-            // aboutMenuItem
-            // 
-            this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutMenuItem.Text = "About";
-            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItemClick);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // undoMenuItem
-            // 
-            this.undoMenuItem.Name = "undoMenuItem";
-            this.undoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.undoMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.undoMenuItem.Text = "Undo";
-            this.undoMenuItem.Click += new System.EventHandler(this.undoClick);
             // 
             // SPSEditor
             // 
