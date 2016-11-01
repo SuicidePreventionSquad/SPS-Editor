@@ -1,0 +1,11 @@
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\bin\Release\SPS-Editor.exe.config
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\bin\Release\SPS-Editor.exe
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\bin\Release\SPS-Editor.pdb
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\bin\Release\Newtonsoft.Json.dll
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\bin\Release\Newtonsoft.Json.xml
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\obj\Release\SPS-Editor.csprojResolveAssemblyReference.cache
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\obj\Release\SPS_Editor.SPSEditor.resources
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\obj\Release\SPS_Editor.Properties.Resources.resources
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\obj\Release\SPS-Editor.csproj.GenerateResource.Cache
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\obj\Release\SPS-Editor.exe
+C:\Users\Alice\documents\visual studio 2015\Projects\SPS-Editor\SPS-Editor\obj\Release\SPS-Editor.pdb

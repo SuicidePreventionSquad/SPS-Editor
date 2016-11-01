@@ -67,7 +67,7 @@
             this.helpMenuItem});
             this.menubar.Location = new System.Drawing.Point(0, 0);
             this.menubar.Name = "menubar";
-            this.menubar.Size = new System.Drawing.Size(628, 24);
+            this.menubar.Size = new System.Drawing.Size(668, 24);
             this.menubar.TabIndex = 2;
             this.menubar.Text = "menubar";
             // 
@@ -115,14 +115,14 @@
             // infoMenuItem
             // 
             this.infoMenuItem.Name = "infoMenuItem";
-            this.infoMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.infoMenuItem.Size = new System.Drawing.Size(152, 22);
             this.infoMenuItem.Text = "Info";
             this.infoMenuItem.Click += new System.EventHandler(this.infoMenuClick);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutMenuItem.Text = "About";
             this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItemClick);
             // 
@@ -131,12 +131,13 @@
             this.pageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pageTextBox.BulletIndent = 1;
             this.pageTextBox.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageTextBox.Location = new System.Drawing.Point(157, 27);
+            this.pageTextBox.Location = new System.Drawing.Point(163, 27);
             this.pageTextBox.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.pageTextBox.Name = "pageTextBox";
-            this.pageTextBox.Size = new System.Drawing.Size(430, 308);
+            this.pageTextBox.Size = new System.Drawing.Size(462, 308);
             this.pageTextBox.TabIndex = 4;
             this.pageTextBox.Text = "";
+            this.pageTextBox.WordWrap = false;
             this.pageTextBox.TextChanged += new System.EventHandler(this.pageTextBox_TextChanged);
             // 
             // contentGroupBox
@@ -145,7 +146,7 @@
             this.contentGroupBox.Controls.Add(this.pageTextBox);
             this.contentGroupBox.Location = new System.Drawing.Point(12, 27);
             this.contentGroupBox.Name = "contentGroupBox";
-            this.contentGroupBox.Size = new System.Drawing.Size(604, 353);
+            this.contentGroupBox.Size = new System.Drawing.Size(642, 353);
             this.contentGroupBox.TabIndex = 6;
             this.contentGroupBox.TabStop = false;
             this.contentGroupBox.Text = "Content: ";
@@ -154,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 391);
+            this.ClientSize = new System.Drawing.Size(668, 391);
             this.Controls.Add(this.contentGroupBox);
             this.Controls.Add(this.menubar);
             this.MainMenuStrip = this.menubar;

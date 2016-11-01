@@ -28,36 +28,48 @@ namespace SPS_Editor
 
         private void pageSelectionChanged(object sender, EventArgs e)
         {
+            int temp = 0;
             if (inputFile != null)
             {
                 if (jdata.Questions != null && jdata.Responses != null && jdata.Contacts != null)
                 {
                     if (pagesListBox.SelectedItem.ToString() == "Questions")
                     {
+                        temp = 0;
                         pageTextBox.Text = "";
                         jdata = JSONHelper.ReadData(inputFile);
+                        
                         foreach (string quest in jdata.Questions)
                         {
                             pageTextBox.AppendText(quest + "\n");
+                            pageTextBox.AppendText("\n");
                         }
                         
                     }
                     else if (pagesListBox.SelectedItem.ToString() == "Responses")
                     {
+                        temp = 0;
                         pageTextBox.Text = "";
                         jdata = JSONHelper.ReadData(inputFile);
                         foreach (string resp in jdata.Responses)
                         {
                             pageTextBox.AppendText(resp + "\n");
+                            pageTextBox.AppendText("\n");
                         }
                     }
                     else if (pagesListBox.SelectedItem.ToString() == "Contacts")
                     {
+                        temp = 0;
                         pageTextBox.Text = "";
                         jdata = JSONHelper.ReadData(inputFile);
                         foreach (string con in jdata.Contacts)
                         {
                             pageTextBox.AppendText(con + "\n");
+                            temp++;
+                            if (temp % 2 == 0)
+                            {
+                                pageTextBox.AppendText("\n");
+                            }
                         }
                     }
                 }
@@ -169,12 +181,12 @@ namespace SPS_Editor
 
         private void aboutMenuItemClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Authors: SPS - 2016.", "About");
+            MessageBox.Show("SPS Editor\nAuthors: SPS - 2016.", "About");
         }
 
         private void infoMenuClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Click the categories you wish to modify.\nWhen you are finished, just close the program.",
+            MessageBox.Show("Open the \"data.json\" file located in \"{Application_Folder}/sps/data.json\"\n Click the categories you wish to modify.\nWhen you are finished, just close the program.",
                 "Help");
         }
 
